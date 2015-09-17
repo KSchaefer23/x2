@@ -6,7 +6,6 @@ String author=  "Kevin Schaefer";
 String title=  "X2 Hero Chase";
 String help=  " Click to relocate hero \n 'q' to quit; 'r' to reset. ";
 
-
 //// GLOBALS:  coordinates, speed, etc.
 float horizon;
 float x, y;       // Position.
@@ -94,7 +93,7 @@ void hero() {
   if (x>width-20) { dx= -dx; }
   if (x<1) { dx= -dx; }
   y = y + dy;
-  if (y<20 || y>height-20) {
+  if (y<horizon-20 || y>height-20) {
     dy= -dy;
   }
 }
@@ -103,28 +102,25 @@ void dog() {
   dogY=  dogY - (dogY-y)/40;
   text( dogX, 10, 10 );
   text( dogY, 10, 20 );
-  //
   fill( 124,83,6 );
-  rect(dogX-20,dogY, 5,20);          // legs
+  rect(dogX-20,dogY, 5,20);                         // legs
   rect(dogX-12,dogY, 5,20);
   rect(dogX+15,dogY, 5,20);
   rect(dogX+7,dogY, 5,20);
-  ellipse(dogX,dogY, 40,20 );        // body
-  ellipse(dogX-20,dogY-15, 20,20);   // head
+  ellipse(dogX,dogY, 40,20 );                       // body
+  if(x<dogX) { ellipse(dogX-20,dogY-15, 20,20); }   // head
+  if(x>dogX) { ellipse(dogX+20,dogY-15, 20,20); }
   fill(80,50,0);
-  ellipse(dogX-14,dogY-13, 11,20);   // ears
+  if(x<dogX) { ellipse(dogX-14,dogY-13, 11,20); }   // ears
+  if(x>dogX) { ellipse(dogX+14,dogY-13, 11,20); }
   fill(0,0,0);
-  ellipse(dogX-24,dogY-18, 2,2);     // eyes
-  ellipse(dogX-30,dogY-15, 3,3);     // nose
-  // if(x<dogX) { ellipse(dogX-20,dogY-15, 20,20); }
-  // if(x>dogX) { ellipse(dogX+20,dogY-15, 20,20); }
+  if(x<dogX) { ellipse(dogX-24,dogY-18, 2,2); }     // eyes
+  if(x>dogX) { ellipse(dogX+24,dogY-18, 2,2); }
+  if(x<dogX) { ellipse(dogX-30,dogY-15, 3,3); }     // nose
+  if(x>dogX) { ellipse(dogX+30,dogY-15, 3,3); }
   /* INSERT YOUR CODE HERE! */
   /* REPLACE THIS STUB! */  text( "woof, woof!!!", 150, 150 );
 }
-
-
-
-
 
 //////// HANDLERS:  mouse clicks, keys
 void mousePressed() {
@@ -141,6 +137,3 @@ void keyPressed() {
   }
   /* INSERT YOUR CODE HERE! */
 }
-   
-   
-
