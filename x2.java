@@ -105,12 +105,17 @@ void dog() {
   text( dogY, 10, 20 );
   //
   fill( 124,83,6 );
-  rect(dogX-20,dogY, 5,20);
+  rect(dogX-20,dogY, 5,20);          // legs
   rect(dogX-12,dogY, 5,20);
   rect(dogX+15,dogY, 5,20);
   rect(dogX+7,dogY, 5,20);
-  ellipse(dogX,dogY, 40,20 );
-  ellipse(dogX-20,dogY-15, 20,20);
+  ellipse(dogX,dogY, 40,20 );        // body
+  ellipse(dogX-20,dogY-15, 20,20);   // head
+  fill(80,50,0);
+  ellipse(dogX-14,dogY-13, 11,20);   // ears
+  fill(0,0,0);
+  ellipse(dogX-24,dogY-18, 2,2);     // eyes
+  ellipse(dogX-30,dogY-15, 3,3);     // nose
   // if(x<dogX) { ellipse(dogX-20,dogY-15, 20,20); }
   // if(x>dogX) { ellipse(dogX+20,dogY-15, 20,20); }
   /* INSERT YOUR CODE HERE! */
