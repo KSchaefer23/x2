@@ -67,7 +67,6 @@ void scene() {
   ellipse(65, horizon-15, 5,5 );                                       // knob
   fill(118,62,6);
   triangle( 30,horizon-60, 60,horizon-90, 90,horizon-60);              // roof
-  /* REPLACE THIS STUB! */  text( "scene", 100, 100 );
 }
 
 void messages() {
