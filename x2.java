@@ -6,6 +6,8 @@ String author=  "Kevin Schaefer";
 String title=  "X2 Hero Chase";
 String help=  " Click to relocate hero \n 'q' to quit; 'r' to reset. ";
 
+int count= 0;
+
 //// GLOBALS:  coordinates, speed, etc.
 float horizon;
 float x, y;       // Position.
@@ -23,10 +25,13 @@ void setup() {
   dy=  2;
   sunX= width*3/4;
   sunY= height/8;
+  dogX= x;
+  dogY= y;
 }
 
 //// NEXT FRAME:  scene, action, show.
 void draw() {
+  count= count +1;
   scene();
   hero();
   dog();
@@ -73,8 +78,6 @@ void messages() {
 
 //// ACTION:  move (x,y) coordinates of hero & dog; show them.
 void hero() {
-  /* INSERT YOUR CODE HERE! */
-  /* REPLACE THIS STUB! */  text( "[[[[ Zoog. ]]]]", 200, 200 );
   fill(0,200,200);
   rect(x-20,y, 70,10);                   // body
   rect( x,y, 30,50 );        
@@ -103,6 +106,18 @@ void dog() {
   text( dogX, 10, 10 );
   text( dogY, 10, 20 );
   fill( 124,83,6 );
+  
+  // ANIMATION PRACTICE IN CLASS //
+  //strokeWeight(3);
+  //if ( count/30 % 2 == 0 ) {
+    //line(dogX-20,dogY, dogX,dogY+10);
+    //line(dogX-20,dogY, dogX+20,dogY+10);
+  //} else {
+    //line(dogX-20,dogY, dogX,dogY+10);
+    //line(dogX-20,dogY, dogX-20,dogY+10);
+  //}
+  //strokeWeight(1);
+  
   rect(dogX-20,dogY, 5,20);                         // legs
   rect(dogX-12,dogY, 5,20);
   rect(dogX+15,dogY, 5,20);
@@ -119,7 +134,6 @@ void dog() {
   if(x<dogX) { ellipse(dogX-30,dogY-15, 3,3); }     // nose
   if(x>dogX) { ellipse(dogX+30,dogY-15, 3,3); }
   /* INSERT YOUR CODE HERE! */
-  /* REPLACE THIS STUB! */  text( "woof, woof!!!", 150, 150 );
 }
 
 //////// HANDLERS:  mouse clicks, keys
