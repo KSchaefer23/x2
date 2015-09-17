@@ -4,7 +4,7 @@
 //////// Please change these to your name and today's date.
 String author=  "Kevin Schaefer";
 String title=  "X2 Hero Chase";
-String help=  " Click to relocate hero \n 'q' to quit; 'r' to reset. ";
+String help=  " Click to relocate hero \n 'q' to Quit; 'r' to Reset. ";
 
 int count= 0;
 
@@ -31,7 +31,7 @@ void setup() {
 
 //// NEXT FRAME:  scene, action, show.
 void draw() {
-  count= count +1;
+  count= count +1;  // same as count++; or count += 1;
   scene();
   hero();
   dog();
@@ -109,7 +109,7 @@ void dog() {
   // ANIMATION PRACTICE IN CLASS //
   //strokeWeight(3);
   //if ( count/30 % 2 == 0 ) {
-    //line(dogX-20,dogY, dogX,dogY+10);
+    //line(dogX-20,dogY, dogX,dogY+10);  x1y1 x2y2
     //line(dogX-20,dogY, dogX+20,dogY+10);
   //} else {
     //line(dogX-20,dogY, dogX,dogY+10);
@@ -122,17 +122,22 @@ void dog() {
   rect(dogX+15,dogY, 5,20);
   rect(dogX+7,dogY, 5,20);
   ellipse(dogX,dogY, 40,20 );                       // body
-  if(x<dogX) { ellipse(dogX-20,dogY-15, 20,20); }   // head
-  if(x>dogX) { ellipse(dogX+20,dogY-15, 20,20); }
-  fill(80,50,0);
-  if(x<dogX) { ellipse(dogX-14,dogY-13, 11,20); }   // ears
-  if(x>dogX) { ellipse(dogX+14,dogY-13, 11,20); }
-  fill(0,0,0);
-  if(x<dogX) { ellipse(dogX-24,dogY-18, 2,2); }     // eyes
-  if(x>dogX) { ellipse(dogX+24,dogY-18, 2,2); }
-  if(x<dogX) { ellipse(dogX-30,dogY-15, 3,3); }     // nose
-  if(x>dogX) { ellipse(dogX+30,dogY-15, 3,3); }
-  /* INSERT YOUR CODE HERE! */
+  if(x<dogX) { 
+    ellipse(dogX-20,dogY-15, 20,20);    // head
+    fill(0,0,0);
+    ellipse(dogX-24,dogY-18, 2,2);      // eye
+    ellipse(dogX-30,dogY-15, 3,3);      // nose
+    fill(80,50,0);
+    ellipse(dogX-14,dogY-13, 11,20);    // ear
+  }
+  if(x>dogX) { 
+    ellipse(dogX+20,dogY-15, 20,20);    // head
+    fill(0,0,0);
+    ellipse(dogX+24,dogY-18, 2,2);      // eye
+    ellipse(dogX+30,dogY-15, 3,3);      // nose
+    fill(80,50,0);
+    ellipse(dogX+14,dogY-13, 11,20);    // ear
+  }
 }
 
 //////// HANDLERS:  mouse clicks, keys
