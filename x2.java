@@ -107,28 +107,36 @@ void dog() {
   fill( 124,83,6 );
   
   // ANIMATION PRACTICE IN CLASS //
-  //strokeWeight(3);
-  //if ( count/30 % 2 == 0 ) {
-    //line(dogX-20,dogY, dogX,dogY+10);  x1y1 x2y2
-    //line(dogX-20,dogY, dogX+20,dogY+10);
-  //} else {
-    //line(dogX-20,dogY, dogX,dogY+10);
-    //line(dogX-20,dogY, dogX-20,dogY+10);
-  //}
-  //strokeWeight(1);
+  strokeWeight(3);
+  if ( count/30 % 2 == 0 ) {              // Straight Legs
+    line(dogX-18,dogY, dogX-18,dogY+15);  // Left 1
+    line(dogX-12,dogY, dogX-12,dogY+15);  // Left 2
+    line(dogX+18,dogY, dogX+18,dogY+15);  // Right 1
+    line(dogX+12,dogY, dogX+12,dogY+15);  // Right 2
+  } else {                                // Moved Legs
+    line(dogX-18,dogY, dogX-10,dogY+15);  // L
+    line(dogX-18,dogY, dogX-22,dogY+15);  // L
+    line(dogX+18,dogY, dogX+8,dogY+15);   // R
+    line(dogX+18,dogY, dogX+22,dogY+15);   // R
+  }
+  strokeWeight(1);
   
-  rect(dogX-20,dogY, 5,20);                         // legs
-  rect(dogX-12,dogY, 5,20);
-  rect(dogX+15,dogY, 5,20);
-  rect(dogX+7,dogY, 5,20);
-  ellipse(dogX,dogY, 40,20 );                       // body
-  if(x<dogX) { 
+  // RECTANGLE NON MOVING LEGS
+  //rect(dogX-20,dogY, 5,20); 
+  //rect(dogX-12,dogY, 5,20);
+  //rect(dogX+15,dogY, 5,20);
+  //rect(dogX+7,dogY, 5,20);
+  
+  ellipse(dogX,dogY, 40,20 );           // body
+  
+  if(x<dogX) {                          // FACE LEFT 
     ellipse(dogX-20,dogY-15, 20,20);    // head
     fill(0,0,0);
     ellipse(dogX-24,dogY-18, 2,2);      // eye
     ellipse(dogX-30,dogY-15, 3,3);      // nose
     fill(80,50,0);
     ellipse(dogX-14,dogY-13, 11,20);    // ear
+    line(dogX+20,dogY, dogX+30,dogY+10);// tail
   }
   if(x>dogX) { 
     ellipse(dogX+20,dogY-15, 20,20);    // head
@@ -137,6 +145,7 @@ void dog() {
     ellipse(dogX+30,dogY-15, 3,3);      // nose
     fill(80,50,0);
     ellipse(dogX+14,dogY-13, 11,20);    // ear
+    line(dogX-20,dogY, dogX-30,dogY+10);
   }
 }
 
